@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="640.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.FRQViewController">
+   <children>
+      <ImageView fx:id="imgFFT" fitHeight="480.0" fitWidth="640.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Canvas fx:id="imgDraw" height="480.0" width="640.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Separator layoutX="31.0" layoutY="489.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+      <Button layoutX="549.0" layoutY="502.0" mnemonicParsing="false" onAction="#handelClear" text="Clear" />
+      <Button layoutX="548.0" layoutY="546.0" mnemonicParsing="false" onAction="#handleReset" text="Reset" />
+      <TextField fx:id="txtSEHeight" layoutX="353.0" layoutY="541.0" prefHeight="30.0" prefWidth="34.0" text="19" />
+      <TextField fx:id="txtSEWidth" layoutX="353.0" layoutY="510.0" prefHeight="30.0" prefWidth="34.0" text="5" />
+      <Label layoutX="151.0" layoutY="514.0" text="Structure element:" />
+      <Label layoutX="281.0" layoutY="514.0" text="width:" />
+      <Label layoutX="281.0" layoutY="545.0" text="height:" />
+      <ToggleButton fx:id="btnRect" layoutX="55.0" layoutY="505.0" mnemonicParsing="false" onAction="#handleRect" />
+      <ToggleButton fx:id="btnLine" layoutX="14.0" layoutY="505.0" mnemonicParsing="false" onAction="#handleLine" AnchorPane.leftAnchor="10.0" />
+      <ChoiceBox fx:id="cBox" layoutX="10.0" layoutY="550.0" prefHeight="33.0" prefWidth="99.0" AnchorPane.leftAnchor="10.0" />
+   </children>
+</AnchorPane>
