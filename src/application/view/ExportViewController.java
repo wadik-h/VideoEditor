@@ -25,96 +25,95 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 
-public class ExportViewController implements ExportUpdate{
-	
+public class ExportViewController implements ExportUpdate {
+
 	@FXML
 	private Label lblEstTime;
-	
+
 	@FXML
 	private Label lblTotalTime;
-	
+
 	@FXML
 	private ProgressBar loadProgress;
-	
+
 	@FXML
 	private ProgressBar saveProgress;
-	
+
 	// Vars for estimated time measure
 	private double last = 0;
 	private double diff;
 	private int mill = 0;
 	private int counter;
-	
+
 	public ExportViewController() {
 		Reference.setExportUpdate(this);
 	}
-	
+
 	@FXML
 	private void initialize() {
 		int processors = Runtime.getRuntime().availableProcessors() - 1;
-		
-		if(processors == 0) {
+
+		if (processors == 0) {
 			processors = 1;
 		}
-		lblTotalTime.setText("Threads: "  + processors);
+		lblTotalTime.setText("Threads: " + processors);
 	}
-	
+
 	@Override
 	public void statusUpdate(double status[]) {
-		
+
 		counter++;
-		
+
 		// Funktion called every 100ms - count up to 1s and measure remaining time
-		if(counter >= 10) { 
-			
+		if (counter >= 10) {
+
 			diff = status[1] - last;
 			last = status[1];
-			
+
 			mill = (int) ((1 - status[1]) / diff) * 1000;
 			this.timeUpdate(TimeMeasure.formatTime(mill));
-			
+
 			counter = 0;
 		}
 
-		Platform.runLater(new Runnable(){
+		Platform.runLater(new Runnable() {
 			@Override
 			public void run() {
-				//Load State
+				// Load State
 				loadProgress.setProgress(status[0]);
-				//Save State
+				// Save State
 				saveProgress.setProgress(status[1]);
-				
+
 			}
-		});	
+		});
 
 	}
 
 	@Override
 	public void timeUpdate(String time) {
-		Platform.runLater(new Runnable(){
+		Platform.runLater(new Runnable() {
 			@Override
 			public void run() {
-				lblEstTime.setText("Estimated Time: "  + time);
+				lblEstTime.setText("Estimated Time: " + time);
 			}
-		});	
+		});
 
 	}
 
-	
 	@Override
 	public void totalTimeUpdate(String time) {
-		Platform.runLater(new Runnable(){
+		Platform.runLater(new Runnable() {
 			@Override
 			public void run() {
-				lblTotalTime.setText("Total Time: "  + time);
+				lblTotalTime.setText("Total Time: " + time);
 			}
-		});	
-		
+		});
+
 	}
-	
+
 	@FXML
 	private void handleCancel() {
-		
+
 		Reference.getVideoProcessor().cancelRender();
 	}
 

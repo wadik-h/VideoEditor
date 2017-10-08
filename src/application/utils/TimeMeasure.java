@@ -18,108 +18,106 @@
 package application.utils;
 
 public class TimeMeasure {
-	
-	
+
 	// Time Measure
 	private long timeStart;
 	private long timeEnd;
 	private long millis;
 	private int totalSeconds;
-	
+
 	public TimeMeasure() {
-		
+
 	}
-	
+
 	public void start() {
-		timeStart = System.currentTimeMillis(); 
+		timeStart = System.currentTimeMillis();
 	}
-	
+
 	// multiplikator default value = 1
 	public void end(int multiplikator) {
-		timeEnd = System.currentTimeMillis(); 
+		timeEnd = System.currentTimeMillis();
 		millis = (timeEnd - timeStart) * multiplikator;
 	}
-	
+
 	public void reset() {
 		timeStart = 0;
 		timeEnd = 0;
 		millis = 0;
 		totalSeconds = 0;
 	}
-	
-	public int getSeconds(){
+
+	public int getSeconds() {
 		return totalSeconds;
-	} 
-	
-	public int getMillis(){
-		return (int) millis;
-	} 
-	
-	public void putMillis(int millis) {
-		this.millis = millis; 
 	}
-	
-	public String getFormatTime(){
+
+	public int getMillis() {
+		return (int) millis;
+	}
+
+	public void putMillis(int millis) {
+		this.millis = millis;
+	}
+
+	public String getFormatTime() {
 		totalSeconds = (int) (millis / 1000);
 		int s = totalSeconds % 60;
 		int m = (totalSeconds / 60) % 60;
 		int h = totalSeconds / 3600;
-		
+
 		String sS = "";
 		String mS = "";
 		String hS = "";
-		
-		if(s < 10) {
+
+		if (s < 10) {
 			sS = "0" + s;
-		}else {
+		} else {
 			sS = "" + s;
 		}
 
-		if(m < 10) {
+		if (m < 10) {
 			mS = "0" + m;
-		}else {
+		} else {
 			mS = "" + m;
 		}
-		
-		if(h < 10) {
+
+		if (h < 10) {
 			hS = "0" + h;
-		}else {
+		} else {
 			hS = "" + h;
 		}
-		
+
 		return hS + ":" + mS + ":" + sS;
 	}
-	
-	public static String formatTime(int millis){
+
+	public static String formatTime(int millis) {
 		int totalSeconds = (int) (millis / 1000);
 		int s = totalSeconds % 60;
 		int m = (totalSeconds / 60) % 60;
 		int h = totalSeconds / 3600;
-		
+
 		String sS = "";
 		String mS = "";
 		String hS = "";
-		
-		if(s < 10) {
+
+		if (s < 10) {
 			sS = "0" + s;
-		}else {
+		} else {
 			sS = "" + s;
 		}
 
-		if(m < 10) {
+		if (m < 10) {
 			mS = "0" + m;
-		}else {
+		} else {
 			mS = "" + m;
 		}
-		
-		if(h < 10) {
+
+		if (h < 10) {
 			hS = "0" + h;
-		}else {
+		} else {
 			hS = "" + h;
 		}
-		
+
 		return hS + ":" + mS + ":" + sS;
 	}
-	
 
 }

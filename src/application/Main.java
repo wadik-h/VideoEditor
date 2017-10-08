@@ -16,7 +16,7 @@
 */
 
 package application;
-	
+
 import java.io.File;
 import java.io.IOException;
 
@@ -39,45 +39,45 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 public class Main extends Application {
-	
+
 	private Stage primaryStage;
 	private Stage drawStage;
 	private Stage exportStage;
-	
+
 	private MainViewController mainVC;
 	private FRQViewController drawVC;
 	private ExportViewController exportVC;
 	private VideoProcessor vp;
-	
+
 	private static File absolutPathFinder;
-	
+
 	public static void main(String[] args) {
 		// Load .dll Files
 		absolutPathFinder = new File("dlls\\opencv_java330.dll");
 		System.load(absolutPathFinder.getAbsolutePath());
-    	absolutPathFinder = new File("dlls\\opencv_ffmpeg330_64.dll");
-    	System.load(absolutPathFinder.getAbsolutePath());  
-    	absolutPathFinder = new File("dlls\\openh264-1.6.0-win64msvc.dll");
-    	System.load(absolutPathFinder.getAbsolutePath());  
-    	
+		absolutPathFinder = new File("dlls\\opencv_ffmpeg330_64.dll");
+		System.load(absolutPathFinder.getAbsolutePath());
+		absolutPathFinder = new File("dlls\\openh264-1.6.0-win64msvc.dll");
+		System.load(absolutPathFinder.getAbsolutePath());
+
 		launch(args);
 	}
 
 	@Override
 	public void start(Stage primaryStage) {
-		
+
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("Video Editor");
 		this.primaryStage.getIcons().add(new Image("file:resources/icon.png"));
-		
+
 		initApp();
 	}
-	
+
 	public void initApp() {
 		showMainView();
-		
+
 		vp = new VideoProcessor();
-		
+
 		Reference.setMainViewController(mainVC);
 		Reference.setMain(this);
 		Reference.setVideoProcessor(vp);
@@ -86,65 +86,65 @@ public class Main extends Application {
 		mainVC.setReference();
 		vp.setReference();
 	}
-	
+
 	public Stage getStage() {
 		return primaryStage;
 	}
-	
+
 	public void closeApplication() {
 		System.exit(-1);
 	}
-	
-	//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
-	// 							View Methods							//
-	//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
-	public void showMainView(){
-	
+	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+	// View Methods
+	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+
+	public void showMainView() {
+
 		try {
-            // Lade View
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/MainView.fxml"));
-            BorderPane rootLayout = (BorderPane) loader.load();
-            
+			// Lade View
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(Main.class.getResource("view/MainView.fxml"));
+			BorderPane rootLayout = (BorderPane) loader.load();
+
 			Scene scene = new Scene(rootLayout);
 			primaryStage.setScene(scene);
 
 			mainVC = loader.getController();
-			
+
 			primaryStage.show();
-            
-        } catch (IOException e) {
-        	e.printStackTrace();
-        }
-		
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 		// exit programm
 		this.primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent event) {
-            	System.exit(-1);
-            }
-            
+			@Override
+			public void handle(WindowEvent event) {
+				System.exit(-1);
+			}
+
 		});
 	}
-	
+
 	public void resetMainView() {
 		primaryStage.close();
 		closeFFTDrawView();
 		initApp();
 	}
-	
+
 	public void showFRQView() {
-		
+
 		this.drawStage = new Stage();
 		this.drawStage.setTitle("Draw FRQ Filter");
 		this.drawStage.getIcons().add(new Image("file:resources/icon.png"));
 		try {
-            // Load View
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/FRQView.fxml"));
-            AnchorPane rootLayout = (AnchorPane) loader.load();
-            
+			// Load View
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(Main.class.getResource("view/FRQView.fxml"));
+			AnchorPane rootLayout = (AnchorPane) loader.load();
+
 			Scene scene = new Scene(rootLayout);
 
 			// Change Cursor
@@ -156,73 +156,71 @@ public class Main extends Application {
 
 			drawVC = loader.getController();
 			drawVC.setReference();
-			
+
 			Reference.setFRQViewController(drawVC);
-			
-//			drawStage.setResizable(false);
+
+			// drawStage.setResizable(false);
 			drawStage.show();
 
-			
-        } catch (IOException e) {
-        		e.printStackTrace();
-        }
-		
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 		this.drawStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent event) {
-            	// Delete reference so that GUI is no more updated in background
-            	drawVC = null;
-            	Reference.setFrameUpadte(null);
-            }
-            
+			@Override
+			public void handle(WindowEvent event) {
+				// Delete reference so that GUI is no more updated in background
+				drawVC = null;
+				Reference.setFrameUpadte(null);
+			}
+
 		});
 
 	}
-	
+
 	public void closeFFTDrawView() {
-		if(drawVC != null) {
+		if (drawVC != null) {
 			drawStage.close();
 			drawVC = null;
-	    	Reference.setFrameUpadte(null);
+			Reference.setFrameUpadte(null);
 		}
 	}
-	
+
 	public void showExportView() {
-		
+
 		this.exportStage = new Stage();
 		this.exportStage.setTitle("Export Video");
 		this.exportStage.getIcons().add(new Image("file:resources/icon.png"));
 
 		try {
-            // Load View
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/ExportView.fxml"));
-            AnchorPane rootLayout = (AnchorPane) loader.load();
-            
+			// Load View
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(Main.class.getResource("view/ExportView.fxml"));
+			AnchorPane rootLayout = (AnchorPane) loader.load();
+
 			Scene scene = new Scene(rootLayout);
 
 			exportStage.setScene(scene);
 
 			exportVC = loader.getController();
-			
+
 			exportStage.setResizable(false);
 			exportStage.show();
-			
-        } catch (IOException e) {
-        		e.printStackTrace();
-        }
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
-	
+
 	public void closeExportView() {
-		Platform.runLater(new Runnable(){
+		Platform.runLater(new Runnable() {
 			@Override
 			public void run() {
 				exportStage.close();
 				exportStage = null;
 				exportVC = null;
 			}
-		});	
+		});
 	}
-	
-	
+
 }

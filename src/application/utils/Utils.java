@@ -17,7 +17,6 @@
 
 package application.utils;
 
-
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
 
@@ -39,7 +38,7 @@ import javafx.scene.image.Image;
  * @since 1.0 (2016-09-17)
  * 
  */
-public final class Utils{
+public final class Utils {
 	/**
 	 * Convert a Mat object (OpenCV) in the corresponding Image for JavaFX
 	 *
@@ -47,20 +46,18 @@ public final class Utils{
 	 *            the {@link Mat} representing the current frame
 	 * @return the {@link Image} to show
 	 */
-	public static Image mat2Image(Mat frame){
-		try{
+	public static Image mat2Image(Mat frame) {
+		try {
 			return SwingFXUtils.toFXImage(matToBufferedImage(frame), null);
-		}
-		catch (Exception e){
+		} catch (Exception e) {
 			// show the exception details
 			System.err.println("Cannot convert the Mat object:");
 			e.printStackTrace();
-			
+
 			return null;
 		}
 	}
-	
-	
+
 	/**
 	 * Support for the {@link mat2image()} method
 	 * 
@@ -68,41 +65,41 @@ public final class Utils{
 	 *            the {@link Mat} object in BGR or grayscale
 	 * @return the corresponding {@link BufferedImage}
 	 */
-	public static BufferedImage matToBufferedImage(Mat original){
+	public static BufferedImage matToBufferedImage(Mat original) {
 
 		// init
 		BufferedImage image = null;
 		int width = original.width(), height = original.height(), channels = original.channels();
 		byte[] sourcePixels = new byte[width * height * channels];
 		original.get(0, 0, sourcePixels);
-		
-		if (original.channels() > 1){
+
+		if (original.channels() > 1) {
 			image = new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR);
-		}else{
+		} else {
 			image = new BufferedImage(width, height, BufferedImage.TYPE_BYTE_GRAY);
 		}
-		
+
 		final byte[] targetPixels = ((DataBufferByte) image.getRaster().getDataBuffer()).getData();
 		System.arraycopy(sourcePixels, 0, targetPixels, 0, sourcePixels.length);
-		
+
 		return image;
 	}
-	
-	public static Image bufferToFXImg(BufferedImage bIMG){
+
+	public static Image bufferToFXImg(BufferedImage bIMG) {
 		Image image;
 		image = SwingFXUtils.toFXImage(bIMG, null);
-		
+
 		return image;
 	}
-	
-	//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
-	//																								//
-	// 											Dialogs												//
-	//																								//
-	//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
-	
-	public static void showErrorDialog(String title, String header, String content){
-		
+
+	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+	// //
+	// Dialogs //
+	// //
+	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+
+	public static void showErrorDialog(String title, String header, String content) {
+
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.setTitle(title);
 		alert.setHeaderText(header);
@@ -110,43 +107,42 @@ public final class Utils{
 
 		// Change CSS styling - DarkTheme
 		DialogPane dialogPane = alert.getDialogPane();
-		dialogPane.getStylesheets().add(
-				Reference.getMain().getClass().getResource("view/DarkTheme.css").toExternalForm());
+		dialogPane.getStylesheets()
+				.add(Reference.getMain().getClass().getResource("view/DarkTheme.css").toExternalForm());
 		dialogPane.getStyleClass().add("myDialog");
-		
-		
+
 		alert.showAndWait();
 	}
-	
-	public static void showInformationDialog(String title, String header, String content){
-		
+
+	public static void showInformationDialog(String title, String header, String content) {
+
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle(title);
 		alert.setHeaderText(header);
 		alert.setContentText(content);
-		
+
 		// Change CSS styling - DarkTheme
 		DialogPane dialogPane = alert.getDialogPane();
-		dialogPane.getStylesheets().add(
-				Reference.getMain().getClass().getResource("view/DarkTheme.css").toExternalForm());
+		dialogPane.getStylesheets()
+				.add(Reference.getMain().getClass().getResource("view/DarkTheme.css").toExternalForm());
 		dialogPane.getStyleClass().add("myDialog");
-		
+
 		alert.showAndWait();
 	}
-	
-	public static void showWarningDialog(String title, String header, String content){
-		
+
+	public static void showWarningDialog(String title, String header, String content) {
+
 		Alert alert = new Alert(AlertType.WARNING);
 		alert.setTitle(title);
 		alert.setHeaderText(header);
 		alert.setContentText(content);
-		
+
 		// Change CSS styling - DarkTheme
 		DialogPane dialogPane = alert.getDialogPane();
-		dialogPane.getStylesheets().add(
-				Reference.getMain().getClass().getResource("view/DarkTheme.css").toExternalForm());
+		dialogPane.getStylesheets()
+				.add(Reference.getMain().getClass().getResource("view/DarkTheme.css").toExternalForm());
 		dialogPane.getStyleClass().add("myDialog");
-		
+
 		alert.showAndWait();
 	}
 }

@@ -31,7 +31,7 @@ import application.view.MainViewController;
  */
 
 public class Reference {
-	
+
 	private static Main main;
 	private static MainViewController mainVC;
 	private static FRQViewController drawVC;
@@ -39,81 +39,76 @@ public class Reference {
 	private static FrameSettings frameSettings;
 	private static FrameUpdate frameUpdate;
 	private static ExportUpdate exportUpdate;
-//	private Settings settings;
-	
-	public Reference(){
-		
+	// private Settings settings;
+
+	public Reference() {
+
 	}
-	
-	//---------------- Setter ----------------//
+
+	// ---------------- Setter ----------------//
 	public static void setExportUpdate(ExportUpdate exportUpdate) {
 		Reference.exportUpdate = exportUpdate;
 	}
-	
+
 	public static void setFrameUpadte(FrameUpdate frameUpdate) {
 		Reference.frameUpdate = frameUpdate;
 	}
-	
-	public static void setMain(Main main){
+
+	public static void setMain(Main main) {
 		Reference.main = main;
 	}
-	
-	public static void setMainViewController(MainViewController mainVC){
+
+	public static void setMainViewController(MainViewController mainVC) {
 		Reference.mainVC = mainVC;
 	}
-	
-	public static void setFRQViewController(FRQViewController drawVC){
+
+	public static void setFRQViewController(FRQViewController drawVC) {
 		Reference.drawVC = drawVC;
 	}
-	
+
 	public static void setVideoProcessor(VideoProcessor vp) {
 		Reference.vp = vp;
 	}
-	
+
 	public static void setFrameSettings(FrameSettings frameSettings) {
 		Reference.frameSettings = frameSettings;
 	}
 
-	
 	/*
-	public void setStettings(Settings settings){
-		this.settings = settings;
-	}
-	*/
-	//---------------- Getter ----------------//
-	
+	 * public void setStettings(Settings settings){ this.settings = settings; }
+	 */
+	// ---------------- Getter ----------------//
+
 	public static ExportUpdate getExportUpdate() {
 		return exportUpdate;
 	}
-	
+
 	public static FrameUpdate getFrameUpdate() {
 		return frameUpdate;
 	}
-	
-	public static Main getMain(){
+
+	public static Main getMain() {
 		return main;
 	}
-	
-	public static MainViewController getMainViewController(){
+
+	public static MainViewController getMainViewController() {
 		return mainVC;
 	}
-	
-	public static FRQViewController getFRQViewController(){
+
+	public static FRQViewController getFRQViewController() {
 		return drawVC;
 	}
 
 	public static VideoProcessor getVideoProcessor() {
 		return vp;
 	}
-	
+
 	public static FrameSettings getFrameSettings() {
 		return frameSettings;
 	}
-	
+
 	/*
-	public Settings getSettings(){
-		return settings;
-	}
-	*/
+	 * public Settings getSettings(){ return settings; }
+	 */
 
 }

@@ -22,8 +22,10 @@ package application.model;
  * the Export view
  */
 
-public interface ExportUpdate{
+public interface ExportUpdate {
 	public void statusUpdate(double status[]);
+
 	public void timeUpdate(String time);
+
 	public void totalTimeUpdate(String time);
 }
