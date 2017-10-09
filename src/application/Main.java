@@ -137,7 +137,7 @@ public class Main extends Application {
 	public void showFRQView() {
 
 		this.drawStage = new Stage();
-		this.drawStage.setTitle("Draw FRQ Filter");
+		this.drawStage.setTitle("FRQ View");
 		this.drawStage.getIcons().add(new Image("file:resources/icon.png"));
 		try {
 			// Load View
