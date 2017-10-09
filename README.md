@@ -1,6 +1,6 @@
 # VideoEditor
 
-This little VideoEditor is made specially for DVR captured Videos.
+This little Video Editor is made especially for analog videos that are recorded with an DVR.
 If you have Skyzone Goggles you may notice some disturbance strips across the Video.
 To remove or reduce this disturbances you can use this little programm and follow the way its done in the Video.
 You can also change the video format from 4:3 to 16:9 by set the wanted resolution.
@@ -13,7 +13,7 @@ https://www.mediafire.com/file/8ssthpxytvvys48/VideoEditor-1.0.exe
 simple package the project to your operating systems format.*
 
 How to use:
-VIDEO
+https://youtu.be/HAHhjCoS-3M
 
 
 
@@ -32,3 +32,5 @@ VIDEO
 	http://www.jrsoftware.org/isdl.php#stable
   
 *Explanation how to package and build this project to an .exe or other format following*
+
+This project was mainly created for learning purpose but i hope it has a practically use as well.
