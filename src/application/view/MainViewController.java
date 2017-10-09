@@ -46,7 +46,7 @@ public class MainViewController {
 	private CheckBox cBoxDenoise;
 
 	@FXML
-	private CheckBox cBoxDenoiseColor;
+	private CheckBox cBoxEX;
 
 	@FXML
 	private CheckBox cBoxFreqFilter;
@@ -335,7 +335,7 @@ public class MainViewController {
 
 	@FXML
 	private void handleDenoiseColor() {
-		frameSettings.setDenoiseColor(cBoxDenoiseColor.isSelected());
+		frameSettings.setEX(cBoxEX.isSelected());
 
 		if (threadState == 0) { // Halted
 			vp.refresh();

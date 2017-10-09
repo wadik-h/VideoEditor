@@ -88,7 +88,7 @@ public class FrameProcessor {
 
 		}
 
-		if (fs.isDenoiseColor()) {
+		if (fs.isEX()) {
 			// Remove High Frequency disturbance
 			denoiseColor(frame);
 		}

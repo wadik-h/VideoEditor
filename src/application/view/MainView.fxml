@@ -40,11 +40,11 @@
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="background">
                      <children>
                         <CheckBox fx:id="cBoxDenoise" layoutX="48.0" layoutY="186.0" mnemonicParsing="false" onAction="#handleDenoise" styleClass="label-bright" text="Denoise" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
-      					<Slider fx:id="slDenoise" focusTraversable="false" layoutX="14.0" layoutY="137.0" majorTickUnit="1.0" max="4.0" min="-4.0" minorTickCount="0" onMouseReleased="#handleDenoiseSilder" prefHeight="14.0" prefWidth="129.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="137.0" />
-                        <Label layoutX="14.0" layoutY="97.0" text="&lt;- blur               sharp -&gt;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="97.0" />
-                        <Slider fx:id="slGamma" blockIncrement="1.0" focusTraversable="false" layoutX="14.0" layoutY="208.0" majorTickUnit="0.2" max="2.0" minorTickCount="1" onMouseReleased="#handleGammaSlider" prefHeight="14.0" prefWidth="129.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
-                        <Label layoutX="24.0" layoutY="175.0" text="Gamma correction: " AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
-                        <CheckBox fx:id="cBoxDenoiseColor" layoutX="15.0" layoutY="49.0" mnemonicParsing="false" onAction="#handleDenoiseColor" styleClass="label-bright" text="Denoise Color" AnchorPane.leftAnchor="5.0" />
+      					<Slider fx:id="slDenoise" focusTraversable="false" layoutX="20.0" layoutY="90.0" majorTickUnit="1.0" max="4.0" min="-4.0" minorTickCount="0" onMouseReleased="#handleDenoiseSilder" prefHeight="14.0" prefWidth="129.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="90.0" />
+                        <Label layoutX="20.0" layoutY="50.0" text="&lt;- blur               sharp -&gt;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="50.0" />
+                        <Slider fx:id="slGamma" blockIncrement="1.0" focusTraversable="false" layoutX="19.0" layoutY="171.0" majorTickUnit="0.2" max="2.0" minorTickCount="1" onMouseReleased="#handleGammaSlider" prefHeight="14.0" prefWidth="129.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
+                        <Label layoutX="19.0" layoutY="138.0" text="Gamma correction: " AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
+                        <CheckBox fx:id="cBoxEX" layoutX="14.0" layoutY="309.0" mnemonicParsing="false" onAction="#handleDenoiseColor" styleClass="label-bright" text="Experimental" AnchorPane.leftAnchor="5.0" />
       
                      </children></AnchorPane>
             </content>

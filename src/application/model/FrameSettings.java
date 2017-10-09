@@ -79,10 +79,10 @@ public class FrameSettings {
 
 	// Values for render settings - Decide which feature will be enabled
 	private boolean denoise = false;
-	private boolean denoiseColor = false;
 	private boolean resize = false;
 	private boolean contrast = false;
 	private boolean fft = false;
+	private boolean ex = false;
 
 	public FrameSettings() {
 
@@ -187,14 +187,6 @@ public class FrameSettings {
 		return denoise;
 	}
 
-	public void setDenoiseColor(boolean b) {
-		this.denoiseColor = b;
-	}
-
-	public boolean isDenoiseColor() {
-		return denoiseColor;
-	}
-
 	// +++++++++++++++++++++++++++++++++++++++
 	public void setResize(boolean b) {
 		this.resize = b;
@@ -220,6 +212,15 @@ public class FrameSettings {
 
 	public boolean isFFT() {
 		return fft;
+	}
+	
+	// +++++++++++++++++++++++++++++++++++++++
+	public void setEX(boolean b) {
+		this.ex = b;
+	}
+
+	public boolean isEX() {
+		return ex;
 	}
 
 	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
