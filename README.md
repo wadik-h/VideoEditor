@@ -6,7 +6,7 @@ To remove or reduce this disturbances you can use this little programm and follo
 You can also change the video format from 4:3 to 16:9 by set the wanted resolution.
 There are some other features as well and you are welcome to work on this Project and add some more features.
 
-Download link for Windows only(at the moment):
+Download (for Windows only at the moment):
 https://www.mediafire.com/file/8ssthpxytvvys48/VideoEditor-1.0.exe
 
 *Since this is a Java project and the used .dll files are also available for other Platforms you can
