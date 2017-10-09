@@ -8,6 +8,7 @@ There are some other features as well and you are welcome to work on this Projec
 
 Download (for Windows only at the moment):
 https://www.mediafire.com/file/8ssthpxytvvys48/VideoEditor-1.0.exe
+(Somehow you need admin privileges for installation so simple right klick on the installer and Execute as administrator)
 
 *Since this is a Java project and the used .dll files are also available for other Platforms you can
 simple package the project to your operating systems format.*
