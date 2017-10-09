@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="ASCII"?>
 <anttasks:AntTask xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:anttasks="http://org.eclipse.fx.ide.jdt/1.0" buildDirectory="${project}/build">
-  <deploy>
-    <application name="VideoEditor"/>
-    <info/>
+  <deploy packagingFormat="exe">
+    <application name="VideoEditor" mainclass="application.Main" version="1.0" toolkit="fx"/>
+    <info title="Video Editor" vendor="Wadim Halle"/>
   </deploy>
   <signjar/>
+  <files key="externalDLLS" value="C:\workspace oxygen\VideoEditor\dlls\openh264-1.6.0-win64msvc.dll"/>
 </anttasks:AntTask>
