@@ -18,40 +18,29 @@
 		<delete dir="project" />
 		<delete dir="projectRefs" />
 	
+		<!-- Copy some resources from project to build -->
 		<mkdir dir="externalLibs" />
+		<copydir src="C:\workspace oxygen\VideoEditor\libs\"
+		           dest="externalLibs/"
+		/>
+			
 		<mkdir dir="externaldlls" />
-		
-		<copy todir="externaldlls">
-			<fileset dir="C:\workspace oxygen\VideoEditor\dlls">
-				<filename name="openh264-1.6.0-win64msvc.dll"/>
-			</fileset>
-		</copy>
-		
-		<copy todir="externaldlls">
-			<fileset dir="C:\workspace oxygen\VideoEditor\dlls">
-				<filename name="opencv_ffmpeg330_64.dll"/>
-			</fileset>
-		</copy>
-					
-		<copy todir="externaldlls">
-			<fileset dir="C:\workspace oxygen\VideoEditor\dlls">
-				<filename name="opencv_java330.dll"/>
-			</fileset>
-		</copy>
-		
-		<copy todir="externalLibs">
-			<fileset dir="C:\workspace oxygen\VideoEditor\libs">
-				<filename name="opencv-330.jar"/>
-			</fileset>
-		</copy>
-	
+		<copydir src="C:\workspace oxygen\VideoEditor\dlls\"
+		           dest="externaldlls/"
+		/>
+
+		<mkdir dir="dist/resources" />
+		<copydir src="C:\workspace oxygen\VideoEditor\resources\"
+		           dest="dist/resources/"
+		/>
+
 		<mkdir dir="project" />
 		<copy todir="project">
 			<fileset dir="C:\workspace oxygen\VideoEditor">
 				<include name="src/**" />
 			</fileset>
 		</copy>
-	
+		
 		<mkdir dir="projectRefs" />
 	</target>
 	<target name='do-compile'>
@@ -60,6 +49,14 @@
 		<mkdir dir="build/libs" />
 		<mkdir dir="build/dlls" />
 		<mkdir dir="build/classes" />
+		<mkdir dir="build/dist" />
+		
+		<!-- Copy project resources -->
+		<copy todir="build/dist">
+			<fileset dir="externalLibs">
+				<include name="opencv-330.jar"/>
+			</fileset>
+		</copy>
 	
 		<!-- Copy project-libs references -->
 		<copy todir="build/libs">
