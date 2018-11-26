@@ -17,8 +17,17 @@ How to use:
 https://youtu.be/HAHhjCoS-3M
 
 Results:
-![alt text](http://www.mediafire.com/view/qyay9246ysm99ik/ori.PNG "Original")
 
+Original picture taken from Video:
+![ori](https://user-images.githubusercontent.com/32615669/49003037-69908200-f161-11e8-95f3-a9e1f267c13b.PNG)
+
+Applied some filters and reduce the strips:
+![modi](https://user-images.githubusercontent.com/32615669/49003036-68f7eb80-f161-11e8-8e0b-8ff36a849a5b.PNG)
+
+An Image of the Original Frequency Domain:
+![filter-ori](https://user-images.githubusercontent.com/32615669/49003035-68f7eb80-f161-11e8-8530-7347db147811.PNG)
+
+Applied Filter:
 ![filter-modi](https://user-images.githubusercontent.com/32615669/49003034-68f7eb80-f161-11e8-8e7c-9edf14e75112.PNG)
 
 
