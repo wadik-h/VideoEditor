@@ -28,8 +28,8 @@ An Image of the Original Frequency Domain:
 ![filter-ori](https://user-images.githubusercontent.com/32615669/49003035-68f7eb80-f161-11e8-8530-7347db147811.PNG)
 
 Applied Filter:
-![filter-modi](https://user-images.githubusercontent.com/32615669/49003034-68f7eb80-f161-11e8-8e7c-9edf14e75112.PNG)
 
+![filter-modi](https://user-images.githubusercontent.com/32615669/49003034-68f7eb80-f161-11e8-8e7c-9edf14e75112.PNG)
 
 **Requirements to work on this project**
 1. Latest Eclipse IDE ( or another one but you have to make sure you can add following features)
