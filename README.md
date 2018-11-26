@@ -17,7 +17,7 @@ How to use:
 https://youtu.be/HAHhjCoS-3M
 
 Results:
-![alt text](https://www.mediafire.com/view/qyay9246ysm99ik/ori.PNG/file)
+![alt text](http://www.mediafire.com/view/qyay9246ysm99ik/ori.PNG "Original")
 
 
 
